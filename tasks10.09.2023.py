@@ -1,3 +1,19 @@
+# Задача не решённая на семинаре
+# Напишите программу, которая подсчитает и выведет сумму квадратов всех
+# двузначных чисел, делящихся на 9.
+# При решении задачи используйте комбинацию функций filter, map, sum.
+# Обратите внимание: на 9 должно делиться исходное двузначное число, а
+# не его квадрат.
+'''
+two_num = range(10,100)
+on_nine = filter(lambda x: x % 9 == 0, two_num)
+squard_nums = map(lambda x: x ** 2, on_nine)
+res = sum(squard_nums)
+print(res)
+'''
+'''
+print(sum(x ** 2 for x in range(10, 100) if x % 9 == 0))
+'''
 # Знакомство с языком Python (семинары)
 # Урок 7. Функции высшего порядка
 # Задача 34:  Винни-Пух попросил Вас посмотреть, есть ли в его стихах
@@ -14,12 +30,12 @@
 # *Пример:*
 
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
-#     **Вывод:** Парам пам-пам
+# **Вывод:** Парам пам-пам
 """
 puh_list = 'пара-ра-рам рам-пам-папам па-ра-па-да'.split()
 counts = list(map(lambda s: s.count('а'), puh_list))
-result = 'Парам пам-пам' if all(count == counts[0] for count in counts) else 'Пам парам'
-print(result)
+res = 'Парам пам-пам' if all(count == counts[0] for count in counts) else 'Пам парам'
+print(res)
 """
 # Задача 36: Напишите функцию print_operation_table(operation,
 # num_rows=6, num_columns=6), которая принимает в качестве аргумента
@@ -40,3 +56,12 @@ print(result)
 # 4 8 12 16 20 24
 # 5 10 15 20 25 30
 # 6 12 18 24 30 36
+'''
+def print_operation_table(operation, num_rows=6, num_columns=6):
+    for i in range(1, num_rows +1):
+        list_ = list()
+        for j in range(1,num_columns + 1):
+            list_.append(operation(i,j))
+        print(list_)
+print_operation_table(lambda x, y: x * y)
+'''
